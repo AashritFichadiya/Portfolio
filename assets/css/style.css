@@ -214,7 +214,8 @@ header .navbar ul li a:hover {
 }
 .home .image img {
   width: 70%;
-  max-width: 100%;
+  max-width: 70%;
+  height: auto;
   margin-top: 5rem;
   margin-left: 6rem;
   border-radius: 50%;
