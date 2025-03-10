@@ -64,8 +64,13 @@
         "icon":"https://img.icons8.com/color/48/net-framework.png"
     },
     {
+<<<<<<< HEAD
         "name": "SQLite",
         "icon": "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
+=======
+        "name":"SQLite",
+        "icon":"https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
+>>>>>>> fa63fced19d5672dd62e5afc9d45e8a0644199b9
     },
     {
         "name":"RDBMS",
