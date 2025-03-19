@@ -158,7 +158,7 @@
         "icon": "https://img.icons8.com/nolan/64/oracle-logo.png",
         "category": "Database"
     }
-]
+    {
         "name":"RDBMS",
         "icon":"https://img.icons8.com/nolan/64/oracle-logo.png"
     }
