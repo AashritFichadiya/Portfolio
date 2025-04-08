@@ -333,9 +333,9 @@ header .navbar ul li a:hover {
   }
   .home .image img {
     width: 90%;
-    margin-top: -2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 2rem;
+    margin-left: 50;
+    margin-right: 50;
   }
   .home .content p {
     font-size: 2.2rem;
