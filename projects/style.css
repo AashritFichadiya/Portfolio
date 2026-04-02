@@ -157,117 +157,140 @@ header .navbar ul li a:hover{
 
 /* work section starts */
 .work{
-  /* background: #010124; */
-  background: linear-gradient(to bottom, #010136, #00003a);
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 25%),
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.18), transparent 25%),
+    linear-gradient(180deg, #081225 0%, #0f172a 100%);
   margin-top: 5rem;
+  position: relative;
+  overflow: hidden;
 }
 .work h2{
   color: #fff;
   padding: 1rem;
 }
 .work .heading span{
-  color: rgb(255, 230, 0);
+  color: #fbbf24;
 }
 .work .button-group{
   display: flex;
   flex-wrap: wrap;
-  gap:1rem;
-  margin: 2rem auto;
-  width: 50%;
+  gap: 1rem;
+  margin: 2.5rem auto 1rem;
+  width: min(72rem, 100%);
   justify-content: center;
   align-items: center;
 }
 .work .button-group .btn{
-  outline: none;
-  padding: 1rem 2rem;
-  background: transparent;
+  padding: 1rem 1.8rem;
+  background: rgba(255, 255, 255, 0.08);
   color: #fff;
-  border: 1px solid #fff;
-  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.12);
 }
 .work .button-group .btn:hover{
-  background-color: #fff;
-  color: #000;
+  background-color: rgba(255, 255, 255, 0.16);
 }
 .work .button-group .btn.is-checked{
-  background-color: #fff;
-  color: #000;
+  background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 100%);
+  color: #fff;
+  border-color: rgba(147, 197, 253, 0.4);
 }
 .work .box-container{
   display: flex;
   flex-wrap: wrap;
-  gap:1.5rem;
-  margin: 2rem;
+  margin: 1.9rem auto 1rem;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 124rem;
+}
+.work .box-container .grid-item{
+  width: min(100%, 38rem);
+  display: flex;
+  justify-content: center;
+  padding: 1.1rem;
 }
 .work .box-container .box{
-  flex:1 1 30rem;
-  border-radius: .5rem;
-  box-shadow: 0 .7rem 1rem rgba(0,0,0,.3);
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 1.4rem 3rem rgba(0,0,0,.24);
   position: relative;
-  overflow:hidden;
-  height:30rem;
-  background: #fff;
-  border: none;
+  overflow: hidden;
+  height: 34rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
 }
 .work .box-container .box img{
   height: 100%;
-  width:100%;
+  width: 100%;
   object-fit: cover;
+  transform: scale(1.01);
+}
+.work .box-container .box::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 14%, rgba(15, 23, 42, 0.94) 100%);
 }
 .work .box-container .box .content{
-  height: 100%;
-  width:100%;
+  width: 100%;
   position: absolute;
-  top:85%; left:0;
-  background:rgba(255, 255, 255, 0.9);
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  align-items: flex-start;
 }
 .work .box-container .box .content .tag{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 4.5rem;
-  width: 100%;
-  padding-left: 1rem;
-  background: #ffd900;
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255,255,255,0.18);
 }
 .work .box-container .box .content .tag h3{
-  font-size: 2rem;
-}
-.work .box-container .box:hover .content{
-  top: 25%;
+  font-size: 1.9rem;
+  color: #fff;
 }
 .work .desc {
-  margin: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.3rem;
 }
 .work .desc p{
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  color: rgba(226, 232, 240, 0.92);
+  line-height: 1.7;
+  text-transform: none;
 }
 .work .desc .btns{
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .work .desc .btns .btn{
-  line-height: 0;
-  display: inline;
-  padding: 1.5rem 2.5rem;
-  border-radius: .5rem;
-  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 1.8rem;
+  border-radius: 999px;
+  font-size: 1.35rem;
   color: #fff;
-  background: rgb(12, 12, 12);
-  margin-right: 2rem;
+  background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 100%);
+  box-shadow: 0 1rem 2.5rem rgba(29, 78, 216, 0.28);
 }
 .work .desc .btns .btn:hover{
-  background: #310ae0f5;
+  transform: translateY(-3px);
 }
 
 @media screen and (max-width: 450px) {
@@ -275,10 +298,13 @@ header .navbar ul li a:hover{
     width: 100%;
   }
   .work .box-container{
-    margin: 0rem;
+    margin: 2rem 0 0;
+  }
+  .work .box-container .grid-item{
+    width: 100%;
   }
   .work .box-container .grid-item .box{
-    width: 95% !important;
+    height: 31rem;
   }
 }
 
@@ -290,29 +316,28 @@ header .navbar ul li a:hover{
   margin-top: 4rem;
 }
 .backbtn .btn {
-  position: relative;
-  line-height: 0;
-  padding: 1.6rem 3rem;
-  border-radius: .5em;
-  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.4rem 2.4rem;
+  border-radius: 999px;
   color: #fff;
-  border: 2px solid #fff;
-  box-shadow: 0px 2px 4px rgba(48, 68, 247, .3);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.16);
   text-align: center;
 }
 .backbtn .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
+  font-weight: 700;
+  font-size: 1.6rem;
   font-family: 'Nunito', sans-serif;
 }
 .backbtn .btn i {
-  margin-right: 0.5rem;
   font-size: 1.5rem;
-  transition: 0.3s;
 }
 .backbtn .btn:hover{
   background: #ffffff;
-  color: #000;
+  color: #0f172a;
 }
 .backbtn .btn:hover i {
   transform: translateX(-8px);

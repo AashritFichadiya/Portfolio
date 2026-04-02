@@ -20,6 +20,10 @@
         "icon": "https://img.icons8.com/color/48/000000/firebase.png"
     },
     {
+        "name": "SQLite",
+        "icon": "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
+    },
+    {
         "name": "HTML5",
         "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png"
     },
@@ -30,6 +34,10 @@
     {
         "name": "JavaScript",
         "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png"
+    },
+    {
+        "name":"React-JS",
+        "icon":"https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
     },
     {
         "name": "C",
@@ -62,13 +70,5 @@
     {
         "name":"ASP.NET",
         "icon":"https://img.icons8.com/color/48/net-framework.png"
-    },
-    {
-        "name": "SQLite",
-        "icon": "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg"
-    },
-    {
-        "name":"RDBMS",
-        "icon":"https://img.icons8.com/nolan/64/oracle-logo.png"
     }
 ]
