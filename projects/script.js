@@ -21,11 +21,11 @@ document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
             document.title = "Projects | Aashrit Fichadiya";
-            $("#favicon").attr("href", "/assets/images/Avatar.jpeg");
+            $("#favicon").attr("href", "../assets/images/Avatar.jpeg");
         }
         else {
             document.title = "Back To Portfolio";
-            $("#favicon").attr("href", "/assets/images/favhand.png");
+            $("#favicon").attr("href", "../assets/images/favhand.png");
         }
     });
 
@@ -47,7 +47,7 @@ function showProjects(projects) {
         projectsHTML += `
         <div class="grid-item ${project.category}">
         <div class="box tilt">
-      <img draggable="false" src="/assets/images/projects/${project.image}" alt="${project.name}" />
+      <img draggable="false" src="../assets/images/projects/${project.image}" alt="${project.name}" onerror="this.onerror=null;this.src='../assets/images/Avatar.jpeg';" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>

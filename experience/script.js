@@ -30,10 +30,10 @@ srtop.reveal('.experience .timeline .container', { interval: 250 });
 document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'visible') {
         document.title = 'Experience | Aashrit Fichadiya';
-        $('#favicon').attr('href', '/assets/images/Avatar.jpeg');
+        $('#favicon').attr('href', '../assets/images/Avatar.jpeg');
     } else {
         document.title = 'Back To Portfolio';
-        $('#favicon').attr('href', '/assets/images/favhand.png');
+        $('#favicon').attr('href', '../assets/images/favhand.png');
     }
 });
 
