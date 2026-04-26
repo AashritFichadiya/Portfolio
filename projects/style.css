@@ -222,13 +222,15 @@ header .navbar ul li a:hover{
   height: 34rem;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(10px);
+  transform: translateZ(0);
+  will-change: transform;
 }
 .work .box-container .box img{
   height: 100%;
   width: 100%;
   object-fit: cover;
   transform: scale(1.01);
+  backface-visibility: hidden;
 }
 .work .box-container .box::after{
   content: "";
@@ -362,17 +364,27 @@ header .navbar ul li a:hover{
 /* scroll top starts */
 #scroll-top{
   position: fixed;
-  top: -140%;
+  bottom: 2rem;
   right: 2rem;
-  padding: 1rem 1.5rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: inline-grid;
+  place-items: center;
   font-size: 2rem;
+  line-height: 1;
   background: #ffae00;
   color: rgb(13, 0, 44);
-  border-radius: 5rem;
-  transition: 1s linear;
+  border-radius: 50%;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.22);
+  transform: translateY(7rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
   z-index: 1000;
 }
 #scroll-top.active{
-  top: calc(100% - 12rem);
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 /* scroll top ends */

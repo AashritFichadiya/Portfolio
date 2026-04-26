@@ -46,7 +46,7 @@ function showProjects(projects) {
     projects.forEach(project => {
         projectsHTML += `
         <div class="grid-item ${project.category}">
-        <div class="box tilt">
+        <div class="box project-card">
       <img draggable="false" src="../assets/images/projects/${project.image}" alt="${project.name}" onerror="this.onerror=null;this.src='../assets/images/Avatar.jpeg';" />
       <div class="content">
         <div class="tag">

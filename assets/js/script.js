@@ -124,7 +124,7 @@ function showProjects(projects) {
     let projectHTML = "";
     projects.slice(0, 6).forEach(project => {
         projectHTML += `
-        <div class="box tilt">
+        <div class="box project-card">
       <img draggable="false" src="./assets/images/projects/${project.image}" alt="${project.name}" onerror="this.onerror=null;this.src='./assets/images/Avatar.jpeg';" />
       <div class="content">
         <div class="tag">
@@ -142,22 +142,16 @@ function showProjects(projects) {
     });
     projectsContainer.innerHTML = projectHTML;
 
-    // <!-- tilt js effect starts -->
-    VanillaTilt.init(document.querySelectorAll(".tilt"), {
-        max: 15,
-    });
-    // <!-- tilt js effect ends -->
-
     /* ===== SCROLL REVEAL ANIMATION ===== */
     const srtop = ScrollReveal({
         origin: 'top',
-        distance: '80px',
-        duration: 1000,
-        reset: true
+        distance: '28px',
+        duration: 650,
+        reset: false
     });
 
     /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 200 });
+    srtop.reveal('.work .box', { interval: 120 });
 
 }
 
@@ -169,11 +163,12 @@ fetchData("projects").then(data => {
     showProjects(data);
 });
 
-// <!-- tilt js effect starts -->
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
+// Keep tilt on the main profile images only.
+VanillaTilt.init(document.querySelectorAll(".home .tilt, .about .tilt"), {
+    max: 12,
+    speed: 350,
+    glare: false,
 });
-// <!-- tilt js effect ends -->
 
 
 //pre loader start

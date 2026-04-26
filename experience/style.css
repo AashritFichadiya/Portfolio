@@ -311,19 +311,29 @@ section {
 
 #scroll-top {
   position: fixed;
-  top: -140%;
+  bottom: 2rem;
   right: 2rem;
-  padding: 1rem 1.3rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: inline-grid;
+  place-items: center;
   font-size: 2rem;
+  line-height: 1;
   background: #1d4ed8;
   color: #fff;
-  border-radius: 0.5rem;
-  transition: 0.5s linear;
+  border-radius: 50%;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.22);
+  transform: translateY(7rem);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.25s ease;
   z-index: 1000;
 }
 
 #scroll-top.active {
-  top: calc(100% - 12rem);
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 768px) {
