@@ -39,6 +39,45 @@ function getProjects() {
         });
 }
 
+let filterTransitionTimer = null;
+
+function applyProjectFilter(filterValue, skipAnimation = false) {
+    const projectItems = Array.from(document.querySelectorAll('.work .grid-item'));
+    if (!projectItems.length) return;
+
+    const showAll = filterValue === '*';
+    const matchesFilter = (item) => showAll || item.classList.contains(filterValue.slice(1));
+
+    if (filterTransitionTimer) {
+        clearTimeout(filterTransitionTimer);
+        filterTransitionTimer = null;
+    }
+
+    if (skipAnimation) {
+        projectItems.forEach(item => {
+            item.classList.remove('is-transitioning');
+            item.classList.toggle('is-hidden', !matchesFilter(item));
+        });
+        return;
+    }
+
+    projectItems.forEach(item => {
+        item.classList.add('is-transitioning');
+    });
+
+    filterTransitionTimer = setTimeout(() => {
+        projectItems.forEach(item => {
+            item.classList.toggle('is-hidden', !matchesFilter(item));
+        });
+
+        requestAnimationFrame(() => {
+            projectItems.forEach(item => {
+                item.classList.remove('is-transitioning');
+            });
+        });
+    }, 160);
+}
+
 
 function showProjects(projects) {
     let projectsContainer = document.querySelector(".work .box-container");
@@ -65,39 +104,15 @@ function showProjects(projects) {
     });
     projectsContainer.innerHTML = projectsHTML;
 
-    // vanilla tilt.js
-    // VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    //     max: 20,
-    // });
-    // // vanilla tilt.js  
-
-    // /* ===== SCROLL REVEAL ANIMATION ===== */
-    // const srtop = ScrollReveal({
-    //     origin: 'bottom',
-    //     distance: '80px',
-    //     duration: 1000,
-    //     reset: true
-    // });
-
-    // /* SCROLL PROJECTS */
-    // srtop.reveal('.work .box', { interval: 200 });
-
-    // isotope filter products
-    var $grid = $('.box-container').isotope({
-        itemSelector: '.grid-item',
-        layoutMode: 'fitRows',
-        masonry: {
-            columnWidth: 200
-        }
-    });
-
     // filter items on button click
     $('.button-group').on('click', 'button', function () {
         $('.button-group').find('.is-checked').removeClass('is-checked');
         $(this).addClass('is-checked');
         var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
+        applyProjectFilter(filterValue);
     });
+
+    applyProjectFilter('*', true);
 }
 
 getProjects().then(data => {
