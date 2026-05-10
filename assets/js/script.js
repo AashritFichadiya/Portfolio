@@ -82,9 +82,95 @@ document.addEventListener('visibilitychange',
     });
 
 
+
+
+$(document).ready(function () {
+
+    $('#menu').click(function () {
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+
+    $(window).on('scroll load', function () {
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+
+        if (window.scrollY > 60) {
+            document.querySelector('#scroll-top').classList.add('active');
+        } else {
+            document.querySelector('#scroll-top').classList.remove('active');
+        }
+
+        // scroll spy
+        $('section').each(function () {
+            let height = $(this).height();
+            let offset = $(this).offset().top - 200;
+            let top = $(window).scrollTop();
+            let id = $(this).attr('id');
+
+            if (top > offset && top < offset + height) {
+                $('.navbar ul li a').removeClass('active');
+                $('.navbar').find(`[href="#${id}"]`).addClass('active');
+            }
+        });
+    });
+
+    // smooth scrolling
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top,
+        }, 500, 'linear')
+    });
+
+    // <!-- emailjs to mail contact form data -->
+    let url='https://script.google.com/macros/s/AKfycbzCouCTek5SQoI-m2dFtPavTquH5mAEXoaMoIYXRTayWcz9M3aByfgQpqTSV4ccBjpW/exec'
+        let contactform=document.querySelector('#contactform');
+        contactform.addEventListener("submit",(e)=>{
+          let d=new FormData(contactform);
+          fetch(url,{
+            method:"POST",
+            body:d
+          }).then((res)=>res.text())
+          .then((finalRes)=>console.log(finalRes,alert("Form Submitted Sucessfully")))
+          contactform.reset();
+          setTimeout(()=>5000)
+          e.preventDefault();
+        })
+    /*$("#contact-form").submit(function (event) {
+        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+
+        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById("contact-form").reset();
+                alert("Form Submitted Successfully");
+            }, function (error) {
+                console.log('FAILED...', error);
+                alert("Form Submission Failed! Try Again");
+            });
+        event.preventDefault();
+    });*/
+    // <!-- emailjs to mail contact form data -->
+
+});
+
+document.addEventListener('visibilitychange',
+    function () {
+        if (document.visibilityState === "visible") {
+            document.title = "Portfolio | Aashrit Fichadiya";
+            $("#favicon").attr("href", "./assets/images/Avatar.jpeg");
+        }
+        else {
+            document.title = "Back To Portfolio";
+            $("#favicon").attr("href", "./assets/images/favhand.png");
+        }
+    });
+
+
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: [ "android development", "flutter development", "web development", "frontend development"], //, "backend development", "web designing"
+    strings: [ "Android Development", "Flutter Development"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -92,27 +178,99 @@ var typed = new Typed(".typing-text", {
 });
 // <!-- typed js effect ends -->
 
-async function fetchData(type = "skills") {
-    let response
-    type === "skills" ?
-        response = await fetch("skills.json")
-        :
-        response = await fetch("./projects/projects.json")
-    const data = await response.json();
-    return data;
-}
+const skillsData = [
+    { "name": "Android", "icon": "https://img.icons8.com/fluency/48/000000/android-os.png" },
+    { "name": "Kotlin", "icon": "https://img.icons8.com/color/48/000000/kotlin.png" },
+    { "name": "Flutter", "icon": "https://img.icons8.com/color/48/000000/flutter.png" },
+    { "name": "Dart", "icon": "https://img.icons8.com/color/48/000000/dart.png" },
+    { "name": "Firebase", "icon": "https://img.icons8.com/color/48/000000/firebase.png" },
+    { "name": "SQLite", "icon": "https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" },
+    { "name": "Java", "icon": "https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png" },
+    { "name": "C++", "icon": "https://img.icons8.com/color/48/000000/c-plus-plus-logo.png" }
+    // Web and other skills commented out per request
+    // { "name": "HTML5", "icon": "https://img.icons8.com/color/48/000000/html-5--v1.png" },
+    // { "name": "CSS3", "icon": "https://img.icons8.com/color/48/000000/css3.png" },
+    // { "name": "JavaScript", "icon": "https://img.icons8.com/color/48/000000/javascript--v1.png" },
+    // { "name": "React-JS", "icon": "https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" },
+    // { "name": "C", "icon": "https://img.icons8.com/color/48/000000/c-programming.png" },
+    // { "name": "PHP", "icon": "https://img.icons8.com/offices/48/000000/php-logo.png" },
+    // { "name": "Python", "icon": "https://img.icons8.com/color/48/000000/python--v1.png" },
+    // { "name": "Joomla", "icon": "https://img.icons8.com/color/48/000000/joomla.png" },
+    // { "name": "C#", "icon": "https://img.icons8.com/color/48/000000/c-sharp-logo.png" },
+    // { "name": "ASP.NET", "icon": "https://img.icons8.com/color/48/net-framework.png" }
+];
+
+const projectsData = [
+  {
+    "name": "GST Calculator",
+    "desc": "Comprehensive GST calculation tool featuring multiple tax rates, history tracking, and a clean user interface as seen in the latest screens.",
+    "image": "GST Calculator.png",
+    "category": "android",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "Secure Calc",
+    "desc": "A secure and high-performance calculator app for Android, designed with privacy and utility in mind.",
+    "image": "SecureCalc.png",
+    "category": "android",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "QR Code Scanner And Generator",
+    "desc": "Flutter app for creating and scanning QR codes with a clean, practical mobile user experience.",
+    "image": "composey.png",
+    "category": "flutter",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "ShieldLoom",
+    "desc": "Flutter project built around modern UI structure, smooth navigation, and polished app interactions.",
+    "image": "portfolio1.PNG",
+    "category": "flutter",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "The 15 Driver & User App",
+    "desc": "Native Android application for driver and user flows with production-style screens and mobile usability.",
+    "image": "webviewapp.PNG",
+    "category": "android",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "Epidi & Symplx",
+    "desc": "Native Android work featuring real-world app flows, scalable screens, and practical user-focused features.",
+    "image": "jspro.PNG",
+    "category": "android",
+    "links": { "view": "#", "code": "#" }
+  }
+  // Web and other projects commented out per request
+  /*
+  ,{
+    "name": "React JS Practice",
+    "desc": "Frontend practice project exploring reusable components, interactive UI patterns, and modern JavaScript.",
+    "image": "jspro.PNG",
+    "category": "web",
+    "links": { "view": "#", "code": "#" }
+  },
+  {
+    "name": "Portfolio Website",
+    "desc": "Personal portfolio built with HTML, CSS, and JavaScript to showcase skills, experience, and selected work.",
+    "image": "portfolio.PNG",
+    "category": "web",
+    "links": { "view": "#", "code": "#" }
+  }
+  */
+];
 
 function showSkills(skills) {
-    let skillsContainer = document.getElementById("skillsContainer");
+    let skillsContainer = document.getElementById("skillsContainer")
     let skillHTML = "";
     skills.forEach(skill => {
         skillHTML += `
-        <div class="bar">
-              <div class="info">
-                <img src=${skill.icon} alt="skill" />
-                <span>${skill.name}</span>
-              </div>
-            </div>`
+        <div class="skill-card tilt">
+            <img src="${skill.icon}" alt="${skill.name} icon" />
+            <span>${skill.name}</span>
+        </div>`
     });
     skillsContainer.innerHTML = skillHTML;
 }
@@ -124,7 +282,7 @@ function showProjects(projects) {
     let projectHTML = "";
     projects.slice(0, 6).forEach(project => {
         projectHTML += `
-        <div class="box project-card">
+        <div class="box project-card tilt">
       <img draggable="false" src="./assets/images/projects/${project.image}" alt="${project.name}" onerror="this.onerror=null;this.src='./assets/images/Avatar.jpeg';" />
       <div class="content">
         <div class="tag">
@@ -134,7 +292,6 @@ function showProjects(projects) {
           <p>${project.desc}</p>
           <div class="btns">
             <a href="${project.links.view}" class="btn"><i class="fas fa-eye"></i> View</a>
-            <a href="${project.links.code}" class="btn">Code <i class="fas fa-code"></i></a>
           </div>
         </div>
       </div>
@@ -142,32 +299,18 @@ function showProjects(projects) {
     });
     projectsContainer.innerHTML = projectHTML;
 
-    /* ===== SCROLL REVEAL ANIMATION ===== */
-    const srtop = ScrollReveal({
-        origin: 'top',
-        distance: '28px',
-        duration: 650,
-        reset: false
-    });
-
-    /* SCROLL PROJECTS */
-    srtop.reveal('.work .box', { interval: 120 });
+    // Projects loaded successfully.
 
 }
 
-fetchData().then(data => {
-    showSkills(data);
-});
+showSkills(skillsData);
+showProjects(projectsData);
 
-fetchData("projects").then(data => {
-    showProjects(data);
-});
-
-// Keep tilt on the main profile images only.
-VanillaTilt.init(document.querySelectorAll(".home .tilt, .about .tilt"), {
-    max: 12,
-    speed: 350,
-    glare: false,
+VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.2,
 });
 
 

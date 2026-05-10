@@ -4,53 +4,104 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/404.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS (Reusing the main style) -->
+    <link rel="stylesheet" href="./assets/css/style.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-png">
+    <link id='favicon' rel="shortcut icon" href="./assets/images/Avatar.jpeg" type="image/x-jpeg">
     <title>Got Lost! Page Not Found</title>
+    <style>
+        .page_404 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .page_404 .glass-container {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 5rem;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: var(--shadow-card);
+            animation: fadeIn 0.8s ease forwards;
+        }
+        .page_404 h1 {
+            font-family: var(--font-heading);
+            font-size: 12rem;
+            font-weight: 700;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1;
+            text-shadow: var(--shadow-glow);
+        }
+        .page_404 h3 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .page_404 p {
+            font-size: 1.6rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+        .page_404 .btn {
+            display: inline-block;
+        }
+    </style>
 </head>
 <body oncontextmenu="return false">
 
 <!-- navbar starts -->
 <header>
-        <a href="/" class="logo"><i class="fa-brands fa-angular"></i> Aashrit</a>
+        <a href="./index.html" class="logo"><i class="fa-brands fa-airbnb"></i> Aashrit</a>
 
         <div id="menu" class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
-            <li><a href="/#home">Home</a></li>
-            <li><a href="/#about">About</a></li>
-            <li><a href="/#skills">Skills</a></li>
-            <li><a href="/#education">Education</a></li>
-            <li><a href="/#experience">Experience</a></li>
-            <li><a href="/#contact">Contact</a></li>
+            <li><a href="./index.html#home">Home</a></li>
+            <li><a href="./index.html#about">About</a></li>
+            <li><a href="./index.html#skills">Skills</a></li>
+            <li><a href="./index.html#education">Education</a></li>
+            <li><a href="./index.html#experience">Experience</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
             </ul>
         </nav>
 </header>
 <!-- navbar ends -->
 
+<!-- Animated Background -->
+<div class="glowing-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+</div>
+
 <!-- 404 section start -->
 <section class="page_404">
-        <div class="container">
-          <div class="wrapper">
-            <h1 class="text-center ">404</h1>
-          </div>
-          
-          <div class="msg">
-          <h3>Page Not Found</h3>
-          <p>The page you are looking for is not available!</p>
-           
-          <div class="backbtn">
-            <a href="/" class="btn">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Home</span>
-          </a>
-          </div>
-
-          </div>
-        </div>
+    <div class="glass-container">
+        <h1>404</h1>
+        <h3>Page Not Found</h3>
+        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="./index.html" class="btn">
+            <span>Back to Home</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
 </section>
 <!-- 404 section end -->
 
@@ -61,47 +112,41 @@
 
       <div class="box">
           <h3>Aashrit's Portfolio</h3>
-          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. </p>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials.</p>
+          <p>© 2026 Aashrit Fichadiya</p>
       </div>
 
       <div class="box">
           <h3>quick links</h3>
-          <a href="/#home"><i class="fas fa-chevron-circle-right"></i> home</a>
-          <a href="/#about"><i class="fas fa-chevron-circle-right"></i> about</a>
-          <a href="/#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
-          <a href="/#education"><i class="fas fa-chevron-circle-right"></i> education</a>
-          <a href="/#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+          <a href="./index.html#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="./index.html#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="./index.html#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="./index.html#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="./index.html#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="./index.html#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
       </div>
 
       <div class="box">
           <h3>contact info</h3>
           <p> <i class="fas fa-phone"></i>+91 99742 32418</p>
           <p> <i class="fas fa-envelope"></i>aashritsoni301@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Rajkot, India-360001</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Rajkot, India-360006</p>
           <div class="share">
-
-              <a href="https://www.linkedin.com" class="fab fa-linkedin" target="_blank"></a>
-              <a href="mailto:aashritsomi301@gmail.com" class="fas fa-envelope" target="_blank"></a>
-              <a href="https://twitter.com" class="fab fa-twitter" target="_blank"></a>
-              <a href="https://t.me" class="fab fa-telegram-plane" target="_blank"></a>
+              <a href="https://www.linkedin.com/in/aashrit-fichadiya-159b902aa/" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="mailto:aashritsoni301@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://threads.net/@_aashreet_soni" class="fab fa-threads" aria-label="Threads" target="_blank"></a>
+              <a href="https://t.me/AashritSoni" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
           </div>
       </div>
   </div>
-
-  <!-- <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com"> Aashrit Fichadiya</a></h1> -->
-
 </section>
 <!-- footer section ends -->
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
 
 <!-- jquery cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="/assets/js/404.js"></script>
-
+<!-- Custom JS -->
+<script src="./assets/js/script.js"></script>
 
 </body>
 </html>
